@@ -5,7 +5,7 @@
 %endif
 Summary: API documentation generation tool for GTK+ and GNOME
 Name: 		gtk-doc
-Version: 1.8
+Version: 1.9
 Release: 	%mkrel 1
 License: 	LGPL
 Group: 		Development/GNOME and GTK+
@@ -39,7 +39,7 @@ and GNOME.
 mv doc/README doc/README.docs
 
 %build
-%configure2_5x
+./configure --prefix=%_prefix
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -68,7 +68,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/sgml/gtk-doc
 %pkgconfigdir/*
 %{_datadir}/aclocal/*
-%_datadir/gnome/help/gtk-doc-manual/
 %dir %_datadir/omf/%name
 %_datadir/omf/%name/*-C.omf
 
