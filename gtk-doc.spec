@@ -15,7 +15,6 @@ BuildRequires:	openjade
 BuildRequires:  docbook-dtd412-xml
 BuildRequires:  docbook-style-xsl
 BuildRequires:  scrollkeeper
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-buildroot
 BuildArch: 	noarch
 URL: 		http://www.gtk.org/rdp
 Requires:   libxslt-proc
