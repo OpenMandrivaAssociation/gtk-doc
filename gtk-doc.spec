@@ -5,7 +5,7 @@
 %endif
 Summary: API documentation generation tool for GTK+ and GNOME
 Name: 		gtk-doc
-Version: 1.9
+Version: 1.10
 Release: 	%mkrel 1
 License: 	LGPL
 Group: 		Development/GNOME and GTK+
