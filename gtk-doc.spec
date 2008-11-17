@@ -12,7 +12,7 @@ Group: 		Development/GNOME and GTK+
 Source:		http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/%{name}-%{version}.tar.bz2
 BuildRequires:	libxslt-proc
 BuildRequires:	openjade
-BuildRequires:  docbook-dtd412-xml
+BuildRequires:  docbook-dtd43-xml
 BuildRequires:  docbook-style-xsl
 BuildRequires:  scrollkeeper
 BuildRequires:  gnome-doc-utils
