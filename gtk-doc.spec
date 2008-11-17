@@ -16,6 +16,8 @@ BuildRequires:  docbook-dtd43-xml
 BuildRequires:  docbook-style-xsl
 BuildRequires:  scrollkeeper
 BuildRequires:  gnome-doc-utils
+#gw for building the checks
+BuildRequires:  glib2-devel
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-buildroot
 BuildArch: 	noarch
 URL: 		http://www.gtk.org/rdp
@@ -54,6 +56,9 @@ install -d -m 755 $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html
 rm -rf %buildroot/var/lib/scrollkeeper
 
 %find_lang %name-manual --with-gnome
+
+%check
+make check
 
 %post
 %update_scrollkeeper
