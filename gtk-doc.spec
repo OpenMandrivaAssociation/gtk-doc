@@ -21,7 +21,7 @@ BuildArch: 	noarch
 URL: 		http://www.gtk.org/rdp
 Requires:   libxslt-proc
 Requires: 	docbook-utils
-Requires:   docbook-dtd412-xml
+Requires:   docbook-dtd43-xml
 Requires: 	docbook-style-xsl
 Requires:	diffutils
 %define _requires_exceptions perl(gtkdoc-common.pl)
