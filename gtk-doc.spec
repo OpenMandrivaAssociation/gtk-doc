@@ -58,7 +58,7 @@ rm -rf %buildroot/var/lib/scrollkeeper
 %find_lang %name-manual --with-gnome
 
 %check
-PATH=$PATH:$(pwd) make check
+PERL5LIB=$(pwd) PATH=$PATH:$(pwd) make check
 
 %post
 %update_scrollkeeper
