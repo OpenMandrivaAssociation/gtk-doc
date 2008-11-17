@@ -5,9 +5,9 @@
 %endif
 Summary: API documentation generation tool for GTK+ and GNOME
 Name: 		gtk-doc
-Version: 1.10
-Release: 	%mkrel 2
-License: 	LGPL
+Version: 1.11
+Release: 	%mkrel 1
+License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
 Source:		http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/%{name}-%{version}.tar.bz2
 BuildRequires:	libxslt-proc
@@ -40,6 +40,7 @@ mv doc/README doc/README.docs
 
 %build
 ./configure --prefix=%_prefix
+%make
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -51,6 +52,8 @@ install -d -m 755 $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html
 
 rm -rf %buildroot/var/lib/scrollkeeper
 
+%find_lang %name-manual --with-gnome
+
 %post
 %update_scrollkeeper
 
@@ -60,7 +63,7 @@ rm -rf %buildroot/var/lib/scrollkeeper
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %name-manual.lang
 %defattr(-, root, root)
 %doc AUTHORS README doc/* examples
 %{_bindir}/*
@@ -68,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/sgml/gtk-doc
 %pkgconfigdir/*
 %{_datadir}/aclocal/*
-%dir %_datadir/omf/%name
-%_datadir/omf/%name/*-C.omf
+%dir %_datadir/omf/%name-manual
+%_datadir/omf/%name-manual/*-C.omf
 
 
