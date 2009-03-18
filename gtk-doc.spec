@@ -6,10 +6,13 @@
 Summary: API documentation generation tool for GTK+ and GNOME
 Name: 		gtk-doc
 Version: 1.11
-Release: 	%mkrel 2
+Release: 	%mkrel 3
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
 Source:		http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/%{name}-%{version}.tar.bz2
+#gw from svn, handle files with spaces in the name, used in The Gimp
+# http://bugzilla.gnome.org/show_bug.cgi?id=575574
+Patch:		gtk-doc-r705-fix-files-with-spaces.patch
 BuildRequires:	libxslt-proc
 BuildRequires:	openjade
 BuildRequires:  docbook-dtd43-xml
@@ -37,6 +40,7 @@ and GNOME.
 
 %prep
 %setup -q
+%patch -p1
 
 # Move this doc file to avoid name collisions
 mv doc/README doc/README.docs
