@@ -23,7 +23,7 @@ BuildRequires:  gnome-doc-utils
 BuildRequires:  glib2-devel
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-buildroot
 BuildArch: 	noarch
-URL: 		http://www.gtk.org/rdp
+URL: 		http://www.gtk.org/gtk-doc/
 Requires:   libxslt-proc
 Requires: 	docbook-utils
 Requires:   docbook-dtd43-xml
