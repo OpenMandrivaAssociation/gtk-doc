@@ -16,6 +16,8 @@ BuildRequires:  docbook-dtd43-xml
 BuildRequires:  docbook-style-xsl
 BuildRequires:  scrollkeeper
 BuildRequires:  gnome-doc-utils
+BuildRequires:  dblatex
+BuildRequires:  source-highlight
 #gw for building the checks
 BuildRequires:  glib2-devel
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-buildroot
@@ -26,6 +28,8 @@ Requires: 	docbook-utils
 Requires:   docbook-dtd43-xml
 Requires: 	docbook-style-xsl
 Requires:	diffutils
+Requires:  dblatex
+Requires:  source-highlight
 %define _requires_exceptions perl(gtkdoc-common.pl)
 Requires(post)  : scrollkeeper >= 0.3
 Requires(postun): scrollkeeper >= 0.3
