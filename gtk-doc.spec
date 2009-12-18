@@ -5,14 +5,11 @@
 %endif
 Summary: API documentation generation tool for GTK+ and GNOME
 Name: 		gtk-doc
-Version: 1.11
-Release: 	%mkrel 4
+Version: 1.13
+Release: 	%mkrel 1
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
 Source:		http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/%{name}-%{version}.tar.bz2
-#gw from svn, handle files with spaces in the name, used in The Gimp
-# http://bugzilla.gnome.org/show_bug.cgi?id=575574
-Patch:		gtk-doc-r705-fix-files-with-spaces.patch
 BuildRequires:	libxslt-proc
 BuildRequires:	openjade
 BuildRequires:  docbook-dtd43-xml
@@ -40,8 +37,6 @@ and GNOME.
 
 %prep
 %setup -q
-%patch -p1
-
 # Move this doc file to avoid name collisions
 mv doc/README doc/README.docs
 
@@ -60,6 +55,10 @@ install -d -m 755 $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html
 rm -rf %buildroot/var/lib/scrollkeeper
 
 %find_lang %name-manual --with-gnome
+for omf in %buildroot%_datadir/omf/*/*-??*.omf;do 
+echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed -e s!%buildroot!!)" >> %name-manual.lang
+done
+
 
 %check
 PERL5LIB=$(pwd) PATH=$PATH:$(pwd) make check
