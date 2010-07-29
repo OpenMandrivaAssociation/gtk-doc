@@ -6,17 +6,17 @@
 Summary: API documentation generation tool for GTK+ and GNOME
 Name: 		gtk-doc
 Version: 1.15
-Release: 	%mkrel 1
+Release: 	%mkrel 2
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
 Source:		http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/%{name}-%{version}.tar.bz2
 BuildRequires:	libxslt-proc
-BuildRequires:	openjade
+#BuildRequires:	openjade
 BuildRequires:  docbook-dtd43-xml
 BuildRequires:  docbook-style-xsl
 BuildRequires:  scrollkeeper
 BuildRequires:  gnome-doc-utils
-BuildRequires:  dblatex
+#BuildRequires:  dblatex
 BuildRequires:  source-highlight
 #gw for building the checks
 BuildRequires:  glib2-devel
@@ -28,7 +28,7 @@ Requires: 	docbook-utils
 Requires:   docbook-dtd43-xml
 Requires: 	docbook-style-xsl
 Requires:	diffutils
-Requires:  dblatex
+#Requires:  dblatex
 Requires:  source-highlight
 %define _requires_exceptions perl(gtkdoc-common.pl)
 Requires(post)  : scrollkeeper >= 0.3
@@ -86,5 +86,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/aclocal/*
 %dir %_datadir/omf/%name-manual
 %_datadir/omf/%name-manual/*-C.omf
-
-
