@@ -20,6 +20,7 @@ BuildRequires:  dblatex
 BuildRequires:  source-highlight
 #gw for building the checks
 BuildRequires:  glib2-devel
+BuildRequires:  rarian
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-buildroot
 BuildArch: 	noarch
 URL: 		http://www.gtk.org/gtk-doc/
