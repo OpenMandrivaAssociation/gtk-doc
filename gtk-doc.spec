@@ -56,7 +56,7 @@ it is used for generating the documentation for GTK+, GLib and GNOME.
 mv doc/README doc/README.docs
 
 %build
-./configure --prefix=%_prefix
+./configure --prefix=%_prefix --disable-scrollkeeper
 %make
 
 %install
@@ -66,8 +66,6 @@ rm -rf $RPM_BUILD_ROOT
 
 # include shared directory
 install -d -m 755 $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html
-
-rm -rf %buildroot/var/lib/scrollkeeper
 
 %find_lang %name-manual --with-gnome
 for omf in %buildroot%_datadir/omf/*/*-??*.omf;do 
