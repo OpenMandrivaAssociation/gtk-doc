@@ -6,7 +6,7 @@
 Summary: API documentation generation tool for GTK+ and GNOME
 Name: 		gtk-doc
 Version: 1.17
-Release: 	%mkrel 2
+Release: 	%mkrel 3
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
 Source:		http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/%{name}-%{version}.tar.bz2
@@ -29,7 +29,6 @@ Requires: 	docbook-utils
 Requires:   docbook-dtd43-xml
 Requires: 	docbook-style-xsl
 Requires:	diffutils
-Requires:  dblatex
 Requires:  source-highlight
 %define _requires_exceptions perl(gtkdoc-common.pl)
 Requires(post)  : scrollkeeper >= 0.3
@@ -39,6 +38,17 @@ Requires(postun): scrollkeeper >= 0.3
 gtk-doc is a tool for generating API reference documentation.
 it is used for generating the documentation for GTK+, GLib
 and GNOME.
+
+%package mkpdf
+Summary: API documentation PDF format generation tool for GTK+ and GNOME
+Group: Development/GNOME and GTK+
+Requires: %{name} = %version
+Requires: dblatex
+Conflicts: %{name} < 1.17-3
+
+%description mkpdf
+gtkdoc-mkpdf is a tool for generating API reference documentation in PDF format.
+it is used for generating the documentation for GTK+, GLib and GNOME.
 
 %prep
 %setup -q
@@ -80,10 +90,25 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %name-manual.lang
 %defattr(-, root, root)
 %doc AUTHORS README doc/* examples
-%{_bindir}/*
+%{_bindir}/gtkdoc-check
+%{_bindir}/gtkdoc-depscan
+%{_bindir}/gtkdoc-fixxref
+%{_bindir}/gtkdoc-mkdb
+%{_bindir}/gtkdoc-mkhtml
+%{_bindir}/gtkdoc-mkman
+%{_bindir}/gtkdoc-mktmpl
+%{_bindir}/gtkdoc-rebase
+%{_bindir}/gtkdoc-scan
+%{_bindir}/gtkdoc-scangobj
+%{_bindir}/gtkdoc-scanobj
+%{_bindir}/gtkdocize
 %{_datadir}/gtk-doc
 %{_datadir}/sgml/gtk-doc
 %pkgconfigdir/*
 %{_datadir}/aclocal/*
 %dir %_datadir/omf/%name-manual
 %_datadir/omf/%name-manual/*-C.omf
+
+%files mkpdf
+%defattr(-, root, root)
+%{_bindir}/gtkdoc-mkpdf
