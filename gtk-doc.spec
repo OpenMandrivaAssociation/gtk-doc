@@ -5,11 +5,11 @@
 %endif
 Summary: API documentation generation tool for GTK+ and GNOME
 Name: 		gtk-doc
-Version: 1.17
-Release: 	%mkrel 3
+Version: 1.18
+Release: 	%mkrel 1
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
-Source:		http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/%{name}-%{version}.tar.bz2
+Source:		http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/%{name}-%{version}.tar.xz
 BuildRequires:	libxslt-proc
 BuildRequires:	openjade
 BuildRequires:  docbook-dtd43-xml
