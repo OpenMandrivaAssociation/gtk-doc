@@ -60,12 +60,12 @@ mv doc/README doc/README.docs
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %makeinstall_std pkgconfigdir=%pkgconfigdir
 
 # include shared directory
-install -d -m 755 $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html
+install -d -m 755 %{buildroot}%{_datadir}/gtk-doc/html
 
 %find_lang %name-manual --with-gnome
 for omf in %buildroot%_datadir/omf/*/*-??*.omf;do 
@@ -83,7 +83,7 @@ PERL5LIB=$(pwd) PATH=$PATH:$(pwd) make check
 %clean_scrollkeeper
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files -f %name-manual.lang
 %defattr(-, root, root)
