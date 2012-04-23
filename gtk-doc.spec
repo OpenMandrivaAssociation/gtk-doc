@@ -1,52 +1,48 @@
-%if %mdkversion >= 200600
-%define pkgconfigdir %_datadir/pkgconfig
-%else
-%define pkgconfigdir %_libdir/pkgconfig
-%endif
-Summary: API documentation generation tool for GTK+ and GNOME
+%define pkgconfigdir %{_libdir}/pkgconfig
+
+Summary:	API documentation generation tool for GTK+ and GNOME
 Name: 		gtk-doc
-Version: 1.18
-Release: 	%mkrel 1
+Version:	1.18
+Release: 	2
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
-Source:		http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/%{name}-%{version}.tar.xz
-BuildRequires:	libxslt-proc
-BuildRequires:	openjade
+URL: 		http://www.gtk.org/gtk-doc/
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/%{name}-%{version}.tar.xz
+BuildArch: 	noarch
+
+BuildRequires:  dblatex
 BuildRequires:  docbook-dtd43-xml
 BuildRequires:  docbook-style-xsl
-BuildRequires:  scrollkeeper
 BuildRequires:  gnome-doc-utils
-BuildRequires:  dblatex
-BuildRequires:  source-highlight
-#gw for building the checks
-BuildRequires:  glib2-devel
+BuildRequires:	openjade
 BuildRequires:  rarian
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-buildroot
-BuildArch: 	noarch
-URL: 		http://www.gtk.org/gtk-doc/
-Requires:   libxslt-proc
-Requires: 	docbook-utils
-Requires:   docbook-dtd43-xml
-Requires: 	docbook-style-xsl
+BuildRequires:  source-highlight
+BuildRequires:	xsltproc
+#gw for building the checks
+BuildRequires:  pkgconfig(glib-2.0)
+
 Requires:	diffutils
-Requires:  source-highlight
+Requires:	docbook-utils
+Requires:	docbook-dtd43-xml
+Requires: 	docbook-style-xsl
+Requires:	source-highlight
+Requires:	xsltproc
 %define _requires_exceptions perl(gtkdoc-common.pl)
-Requires(post)  : scrollkeeper >= 0.3
-Requires(postun): scrollkeeper >= 0.3
+Requires(post,postun): rarian
 
 %description
 gtk-doc is a tool for generating API reference documentation.
 it is used for generating the documentation for GTK+, GLib
 and GNOME.
 
-%package mkpdf
-Summary: API documentation PDF format generation tool for GTK+ and GNOME
-Group: Development/GNOME and GTK+
-Requires: %{name} = %version
-Requires: dblatex
-Conflicts: %{name} < 1.17-3
+%package	mkpdf
+Summary:	API documentation PDF format generation tool for GTK+ and GNOME
+Group:		Development/GNOME and GTK+
+Requires:	%{name} = %{version}
+Requires:	dblatex
+Conflicts:	%{name} < 1.17-3
 
-%description mkpdf
+%description	mkpdf
 gtkdoc-mkpdf is a tool for generating API reference documentation in PDF format.
 it is used for generating the documentation for GTK+, GLib and GNOME.
 
@@ -56,37 +52,27 @@ it is used for generating the documentation for GTK+, GLib and GNOME.
 mv doc/README doc/README.docs
 
 %build
-./configure --prefix=%_prefix --disable-scrollkeeper
+%configure2_5x \
+	--build=%{_build} \
+	--disable-scrollkeeper
+
 %make
 
 %install
-rm -rf %{buildroot}
-
-%makeinstall_std pkgconfigdir=%pkgconfigdir
+%makeinstall_std pkgconfigdir=%{pkgconfigdir}
 
 # include shared directory
 install -d -m 755 %{buildroot}%{_datadir}/gtk-doc/html
 
-%find_lang %name-manual --with-gnome
-for omf in %buildroot%_datadir/omf/*/*-??*.omf;do 
-echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed -e s!%buildroot!!)" >> %name-manual.lang
+%find_lang %{name}-manual --with-gnome
+for omf in %buildroot%{_datadir}/omf/*/*-??*.omf;do 
+echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed -e s!%buildroot!!)" >> %{name}-manual.lang
 done
-
 
 %check
 PERL5LIB=$(pwd) PATH=$PATH:$(pwd) make check
 
-%post
-%update_scrollkeeper
-
-%postun
-%clean_scrollkeeper
-
-%clean
-rm -rf %{buildroot}
-
-%files -f %name-manual.lang
-%defattr(-, root, root)
+%files -f %{name}-manual.lang
 %doc AUTHORS README doc/* examples
 %{_bindir}/gtkdoc-check
 %{_bindir}/gtkdoc-depscan
@@ -102,11 +88,11 @@ rm -rf %{buildroot}
 %{_bindir}/gtkdocize
 %{_datadir}/gtk-doc
 %{_datadir}/sgml/gtk-doc
-%pkgconfigdir/*
+%{pkgconfigdir}/*
 %{_datadir}/aclocal/*
-%dir %_datadir/omf/%name-manual
-%_datadir/omf/%name-manual/*-C.omf
+%dir %{_datadir}/omf/%{name}-manual
+%{_datadir}/omf/%{name}-manual/*-C.omf
 
 %files mkpdf
-%defattr(-, root, root)
 %{_bindir}/gtkdoc-mkpdf
+
