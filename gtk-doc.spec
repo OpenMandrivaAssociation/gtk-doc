@@ -90,8 +90,6 @@ PERL5LIB=$(pwd) PATH=$PATH:$(pwd) make check
 %{_datadir}/sgml/gtk-doc
 %{pkgconfigdir}/*
 %{_datadir}/aclocal/*
-%dir %{_datadir}/omf/%{name}-manual
-%{_datadir}/omf/%{name}-manual/*-C.omf
 
 %files mkpdf
 %{_bindir}/gtkdoc-mkpdf
