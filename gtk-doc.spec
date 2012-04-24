@@ -65,9 +65,6 @@ mv doc/README doc/README.docs
 install -d -m 755 %{buildroot}%{_datadir}/gtk-doc/html
 
 %find_lang %{name}-manual --with-gnome
-for omf in %buildroot%{_datadir}/omf/*/*-??*.omf;do 
-echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed -e s!%buildroot!!)" >> %{name}-manual.lang
-done
 
 %check
 PERL5LIB=$(pwd) PATH=$PATH:$(pwd) make check
