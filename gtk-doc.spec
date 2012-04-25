@@ -1,9 +1,8 @@
-%define pkgconfigdir %{_libdir}/pkgconfig
 
 Summary:	API documentation generation tool for GTK+ and GNOME
 Name: 		gtk-doc
 Version:	1.18
-Release: 	2
+Release: 	3
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
 URL: 		http://www.gtk.org/gtk-doc/
@@ -27,7 +26,7 @@ Requires:	docbook-dtd43-xml
 Requires: 	docbook-style-xsl
 Requires:	source-highlight
 Requires:	xsltproc
-%define _requires_exceptions perl(gtkdoc-common.pl)
+%define __noautoreq 'perl\\(gtkdoc-common.pl\\)'
 Requires(post,postun): rarian
 
 %description
@@ -59,7 +58,7 @@ mv doc/README doc/README.docs
 %make
 
 %install
-%makeinstall_std pkgconfigdir=%{pkgconfigdir}
+%makeinstall_std 
 
 # include shared directory
 install -d -m 755 %{buildroot}%{_datadir}/gtk-doc/html
@@ -85,7 +84,7 @@ PERL5LIB=$(pwd) PATH=$PATH:$(pwd) make check
 %{_bindir}/gtkdocize
 %{_datadir}/gtk-doc
 %{_datadir}/sgml/gtk-doc
-%{pkgconfigdir}/*
+%{_datadir}/pkgconfig/gtk-doc.pc
 %{_datadir}/aclocal/*
 
 %files mkpdf
