@@ -1,12 +1,11 @@
-
 Summary:	API documentation generation tool for GTK+ and GNOME
 Name: 		gtk-doc
 Version:	1.18
-Release: 	3
+Release: 	2
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
 URL: 		http://www.gtk.org/gtk-doc/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/%{version}/%{name}-%{version}.tar.xz
 BuildArch: 	noarch
 
 BuildRequires:  dblatex
@@ -22,6 +21,7 @@ BuildRequires:  pkgconfig(glib-2.0)
 
 Requires:	diffutils
 Requires:	docbook-utils
+Requires:	docbook-dtd412-xml
 Requires:	docbook-dtd43-xml
 Requires: 	docbook-style-xsl
 Requires:	source-highlight
