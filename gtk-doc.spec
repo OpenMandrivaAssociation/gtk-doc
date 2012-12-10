@@ -63,7 +63,7 @@ mv doc/README doc/README.docs
 # include shared directory
 install -d -m 755 %{buildroot}%{_datadir}/gtk-doc/html
 
-%find_lang %{name}-manual --with-gnome
+#find_lang %{name}-manual --with-gnome
 
 %check
 PERL5LIB=$(pwd) PATH=$PATH:$(pwd) make check
