@@ -1,5 +1,5 @@
 Summary:	API documentation generation tool for GTK+ and GNOME
-Name: 		gtk-doc
+Name:		gtk-doc
 Version:	1.18
 Release: 	2
 License: 	GPLv2+ and GFDL
@@ -42,8 +42,9 @@ Requires:	dblatex
 Conflicts:	%{name} < 1.17-3
 
 %description	mkpdf
-gtkdoc-mkpdf is a tool for generating API reference documentation in PDF format.
-it is used for generating the documentation for GTK+, GLib and GNOME.
+gtkdoc-mkpdf is a tool for generating API reference documentation in PDF 
+format. It is used for generating the documentation for GTK+, GLib and 
+GNOME.
 
 %prep
 %setup -q
@@ -63,13 +64,10 @@ mv doc/README doc/README.docs
 # include shared directory
 install -d -m 755 %{buildroot}%{_datadir}/gtk-doc/html
 
-#find_lang %{name}-manual --with-gnome
-
 %check
 PERL5LIB=$(pwd) PATH=$PATH:$(pwd) make check
 
 %files 
-#-f %{name}-manual.lang
 %doc AUTHORS README doc/* examples
 %{_bindir}/gtkdoc-check
 %{_bindir}/gtkdoc-depscan
