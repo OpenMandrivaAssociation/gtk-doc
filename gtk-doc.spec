@@ -4,7 +4,7 @@ Version:	1.18
 Release: 	2
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
-URL: 		http://www.gtk.org/gtk-doc/
+Url: 		http://www.gtk.org/gtk-doc/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/%{version}/%{name}-%{version}.tar.xz
 BuildArch: 	noarch
 
