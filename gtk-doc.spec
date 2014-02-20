@@ -16,6 +16,7 @@ BuildRequires:  gnome-doc-utils
 BuildRequires:	openjade
 BuildRequires:  rarian
 BuildRequires:  source-highlight
+BuildRequires:	itstool
 BuildRequires:	xsltproc
 #gw for building the checks
 BuildRequires:  pkgconfig(glib-2.0)
