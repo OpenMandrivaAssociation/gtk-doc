@@ -1,0 +1,1 @@
+addFilter('gtk-doc\..*devel-file-in-non-devel-package.*/usr/share/pkgconfig/gtk-doc.pc')
