@@ -6,6 +6,7 @@ License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
 Url: 		http://www.gtk.org/gtk-doc/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/%{version}/%{name}-%{version}.tar.xz
+Source1:	%{name}.rpmlintrc
 BuildArch: 	noarch
 
 BuildRequires:  dblatex
@@ -52,22 +53,21 @@ GNOME.
 mv doc/README doc/README.docs
 
 %build
-%configure2_5x \
-	--build=%{_build} \
-	--disable-scrollkeeper
-
+%configure2_5x
 %make
 
 %install
 %makeinstall_std 
 
 # include shared directory
-install -d -m 755 %{buildroot}%{_datadir}/gtk-doc/html
+install -d -m755 %{buildroot}%{_datadir}/gtk-doc/html
+
+%find_lang %{name}-manual --with-gnome
 
 %check
 PERL5LIB=$(pwd) PATH=$PATH:$(pwd) make check
 
-%files 
+%files -f %{name}-manual.lang
 %doc AUTHORS README doc/* examples
 %{_bindir}/gtkdoc-check
 %{_bindir}/gtkdoc-depscan
