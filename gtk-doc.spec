@@ -1,3 +1,5 @@
+%bcond_without bootstrap
+
 Summary:	API documentation generation tool for GTK+ and GNOME
 Name:		gtk-doc
 Version:	1.20
@@ -9,7 +11,9 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/%{version}/%{name}-%{ver
 Source1:	%{name}.rpmlintrc
 BuildArch: 	noarch
 
+%if !%{with bootstrap}
 BuildRequires:  dblatex
+%endif
 BuildRequires:  docbook-dtd43-xml
 BuildRequires:  docbook-style-xsl
 BuildRequires:  gnome-doc-utils
@@ -40,7 +44,9 @@ and GNOME.
 Summary:	API documentation PDF format generation tool for GTK+ and GNOME
 Group:		Development/GNOME and GTK+
 Requires:	%{name} = %{version}
+%if !%{with bootstrap}
 Requires:	dblatex
+%endif
 Conflicts:	%{name} < 1.17-3
 
 %description	mkpdf
