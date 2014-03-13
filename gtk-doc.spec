@@ -1,4 +1,4 @@
-%bcond_without bootstrap
+%bcond_with bootstrap
 
 Summary:	API documentation generation tool for GTK+ and GNOME
 Name:		gtk-doc
