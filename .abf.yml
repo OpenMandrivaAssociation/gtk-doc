@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   gtk-doc-1.20.tar.xz: dac60c7044bfd2e8a2462c99aaf64b98c777dc51
+sources:
+  gtk-doc-1.21.tar.xz: 49b4fc9d4cf618c53f39f35f4cf2fc27b7b3dae4

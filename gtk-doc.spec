@@ -2,8 +2,8 @@
 
 Summary:	API documentation generation tool for GTK+ and GNOME
 Name:		gtk-doc
-Version:	1.20
-Release: 	3
+Version:	1.21
+Release: 	1
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
 Url: 		http://www.gtk.org/gtk-doc/
@@ -86,7 +86,6 @@ PERL5LIB=$(pwd) PATH=$PATH:$(pwd) make check
 %{_bindir}/gtkdoc-rebase
 %{_bindir}/gtkdoc-scan
 %{_bindir}/gtkdoc-scangobj
-%{_bindir}/gtkdoc-scanobj
 %{_bindir}/gtkdocize
 %{_datadir}/gtk-doc
 %{_datadir}/sgml/gtk-doc
