@@ -16,6 +16,7 @@ BuildRequires:	openjade
 BuildRequires:  rarian
 BuildRequires:  source-highlight
 BuildRequires:	xsltproc
+BuildRequires:	itstool
 #gw for building the checks
 BuildRequires:  pkgconfig(glib-2.0)
 
