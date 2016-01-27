@@ -1,2 +1,4 @@
+removed_sources:
+  gtk-doc-1.18.tar.xz: 41703f523691e8ddc5d7a23f596b642751c46d39
 sources:
-  "gtk-doc-1.18.tar.xz": 41703f523691e8ddc5d7a23f596b642751c46d39
+  gtk-doc-1.20.tar.xz: dac60c7044bfd2e8a2462c99aaf64b98c777dc51
