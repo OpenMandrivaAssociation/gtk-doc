@@ -4,12 +4,12 @@
 
 Summary:	API documentation generation tool for GTK+ and GNOME
 Name:		gtk-doc
-Version:	1.24
+Version:	1.28
 Release: 	1
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
 Url: 		http://www.gtk.org/gtk-doc/
-Source0:	http://download.gnome.org/sources/gtk-doc/%{version}/%{name}-%{version}.tar.xz
+Source0:	https://download.gnome.org/sources/%{name}/%{version}/%{name}-%{version}.tar.xz
 Source1:	%{name}.rpmlintrc
 BuildArch: 	noarch
 
