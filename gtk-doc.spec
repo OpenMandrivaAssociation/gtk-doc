@@ -62,6 +62,9 @@ GNOME.
 mv doc/README doc/README.docs
 
 %build
+export CC=gcc
+export CXX=g++
+
 %configure2_5x
 %make
 
