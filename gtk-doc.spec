@@ -86,6 +86,7 @@ install -d -m755 %{buildroot}%{_datadir}/gtk-doc/html
 %{_bindir}/gtkdoc-fixxref
 %{_bindir}/gtkdoc-mkdb
 %{_bindir}/gtkdoc-mkhtml
+%{_bindir}/gtkdoc-mkhtml2
 %{_bindir}/gtkdoc-mkman
 #{_bindir}/gtkdoc-mktmpl
 %{_bindir}/gtkdoc-rebase
@@ -96,6 +97,7 @@ install -d -m755 %{buildroot}%{_datadir}/gtk-doc/html
 #{_datadir}/sgml/gtk-doc
 %{_datadir}/pkgconfig/gtk-doc.pc
 %{_datadir}/aclocal/*
+%{_libdir}/cmake/*
 
 %files mkpdf
 %{_bindir}/gtkdoc-mkpdf
