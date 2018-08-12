@@ -87,7 +87,7 @@ install -d -m755 %{buildroot}%{_datadir}/gtk-doc/html
 %{_bindir}/gtkdoc-mkdb
 %{_bindir}/gtkdoc-mkhtml
 %{_bindir}/gtkdoc-mkman
-%{_bindir}/gtkdoc-mktmpl
+#{_bindir}/gtkdoc-mktmpl
 %{_bindir}/gtkdoc-rebase
 %{_bindir}/gtkdoc-scan
 %{_bindir}/gtkdoc-scangobj
