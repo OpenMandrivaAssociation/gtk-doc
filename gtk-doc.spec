@@ -4,12 +4,12 @@
 
 Summary:	API documentation generation tool for GTK+ and GNOME
 Name:		gtk-doc
-Version:	1.24
-Release: 	2
+Version:	1.28
+Release: 	1
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
 Url: 		http://www.gtk.org/gtk-doc/
-Source0:	http://download.gnome.org/sources/gtk-doc/%{version}/%{name}-%{version}.tar.xz
+Source0:	https://download.gnome.org/sources/%{name}/%{version}/%{name}-%{version}.tar.xz
 Source1:	%{name}.rpmlintrc
 BuildArch: 	noarch
 
@@ -62,6 +62,9 @@ GNOME.
 mv doc/README doc/README.docs
 
 %build
+#export CC=gcc
+#export CXX=g++
+
 %configure2_5x
 %make
 
@@ -83,16 +86,18 @@ install -d -m755 %{buildroot}%{_datadir}/gtk-doc/html
 %{_bindir}/gtkdoc-fixxref
 %{_bindir}/gtkdoc-mkdb
 %{_bindir}/gtkdoc-mkhtml
+%{_bindir}/gtkdoc-mkhtml2
 %{_bindir}/gtkdoc-mkman
-%{_bindir}/gtkdoc-mktmpl
+#{_bindir}/gtkdoc-mktmpl
 %{_bindir}/gtkdoc-rebase
 %{_bindir}/gtkdoc-scan
 %{_bindir}/gtkdoc-scangobj
 %{_bindir}/gtkdocize
 %{_datadir}/gtk-doc
-%{_datadir}/sgml/gtk-doc
+#{_datadir}/sgml/gtk-doc
 %{_datadir}/pkgconfig/gtk-doc.pc
 %{_datadir}/aclocal/*
+%{_libdir}/cmake/*
 
 %files mkpdf
 %{_bindir}/gtkdoc-mkpdf
