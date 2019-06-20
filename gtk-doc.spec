@@ -63,8 +63,6 @@ GNOME.
 mv doc/README doc/README.docs
 
 %build
-#export CC=gcc
-#export CXX=g++
 
 %configure2_5x
 %make_build
@@ -98,7 +96,7 @@ install -d -m755 %{buildroot}%{_datadir}/gtk-doc/html
 #{_datadir}/sgml/gtk-doc
 %{_datadir}/pkgconfig/gtk-doc.pc
 %{_datadir}/aclocal/*
-%{_libdir}/cmake/*
+#{_libdir}/cmake/*
 
 %files mkpdf
 %{_bindir}/gtkdoc-mkpdf
