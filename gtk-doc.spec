@@ -96,7 +96,7 @@ install -d -m755 %{buildroot}%{_datadir}/gtk-doc/html
 #{_datadir}/sgml/gtk-doc
 %{_datadir}/pkgconfig/gtk-doc.pc
 %{_datadir}/aclocal/*
-#{_libdir}/cmake/*
+%{_datadir}/cmake/*
 
 %files mkpdf
 %{_bindir}/gtkdoc-mkpdf
