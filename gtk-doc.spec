@@ -37,6 +37,7 @@ Requires:	source-highlight
 Requires:	xsltproc
 %define __noautoreq 'perl\\(gtkdoc-common.pl\\)'
 Requires(post,postun): rarian
+Requires: python-pygments
 
 %description
 gtk-doc is a tool for generating API reference documentation.
