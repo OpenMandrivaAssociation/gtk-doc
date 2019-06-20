@@ -4,8 +4,8 @@
 
 Summary:	API documentation generation tool for GTK+ and GNOME
 Name:		gtk-doc
-Version:	1.29
-Release: 	2
+Version:	1.30
+Release: 	1
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
 Url: 		http://www.gtk.org/gtk-doc/
@@ -26,6 +26,7 @@ BuildRequires:	itstool
 BuildRequires:	xsltproc
 #gw for building the checks
 BuildRequires:  pkgconfig(glib-2.0)
+BuildRequires:  python3dist(pygments)
 
 Requires:	diffutils
 Requires:	docbook-utils
@@ -66,10 +67,10 @@ mv doc/README doc/README.docs
 #export CXX=g++
 
 %configure2_5x
-%make
+%make_build
 
 %install
-%makeinstall_std 
+%make_install
 
 # include shared directory
 install -d -m755 %{buildroot}%{_datadir}/gtk-doc/html
