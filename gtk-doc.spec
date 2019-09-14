@@ -11,7 +11,6 @@ Group: 		Development/GNOME and GTK+
 Url: 		http://www.gtk.org/gtk-doc/
 Source0:	https://download.gnome.org/sources/%{name}/%{version}/%{name}-%{version}.tar.xz
 Source1:	%{name}.rpmlintrc
-Patch0:		fixperms.diff
 BuildArch: 	noarch
 
 %if !%{with bootstrap}
