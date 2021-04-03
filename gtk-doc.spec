@@ -18,6 +18,7 @@ BuildRequires:  dblatex
 %endif
 BuildRequires:  docbook-dtd43-xml
 BuildRequires:  docbook-style-xsl
+BuildRequires:  meson
 BuildRequires:  gnome-doc-utils
 BuildRequires:	openjade
 BuildRequires:  rarian
@@ -65,11 +66,11 @@ GNOME.
 mv doc/README doc/README.docs
 
 %build
-%configure
-%make_build
+%meson
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 # include shared directory
 install -d -m755 %{buildroot}%{_datadir}/gtk-doc/html
