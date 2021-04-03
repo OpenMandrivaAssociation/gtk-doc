@@ -1,11 +1,11 @@
-%bcond_with bootstrap
+%bcond_without bootstrap
 
 %define _disable_rebuild_configure 1
 
 Summary:	API documentation generation tool for GTK+ and GNOME
 Name:		gtk-doc
-Version:	1.32
-Release: 	3
+Version:	1.33.2
+Release: 	1
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
 Url: 		http://www.gtk.org/gtk-doc/
@@ -18,6 +18,7 @@ BuildRequires:  dblatex
 %endif
 BuildRequires:  docbook-dtd43-xml
 BuildRequires:  docbook-style-xsl
+BuildRequires:  meson
 BuildRequires:  gnome-doc-utils
 BuildRequires:	openjade
 BuildRequires:  rarian
@@ -65,11 +66,11 @@ GNOME.
 mv doc/README doc/README.docs
 
 %build
-%configure
-%make_build
+%meson
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 # include shared directory
 install -d -m755 %{buildroot}%{_datadir}/gtk-doc/html
@@ -97,7 +98,7 @@ install -d -m755 %{buildroot}%{_datadir}/gtk-doc/html
 #{_datadir}/sgml/gtk-doc
 %{_datadir}/pkgconfig/gtk-doc.pc
 %{_datadir}/aclocal/*
-%{_datadir}/cmake/*
+%{_libdir}/cmake/GtkDoc/*
 
 %files mkpdf
 %{_bindir}/gtkdoc-mkpdf
