@@ -1,11 +1,11 @@
-%bcond_with bootstrap
+%bcond_without bootstrap
 
 %define _disable_rebuild_configure 1
 
 Summary:	API documentation generation tool for GTK+ and GNOME
 Name:		gtk-doc
-Version:	1.32
-Release: 	3
+Version:	1.33.2
+Release: 	1
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
 Url: 		http://www.gtk.org/gtk-doc/
