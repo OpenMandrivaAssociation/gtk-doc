@@ -16,6 +16,7 @@ BuildArch: 	noarch
 %if !%{with bootstrap}
 BuildRequires:  dblatex
 %endif
+BuildRequires:  gettext
 BuildRequires:  docbook-dtd43-xml
 BuildRequires:  docbook-style-xsl
 BuildRequires:  meson
