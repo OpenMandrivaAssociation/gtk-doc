@@ -5,7 +5,7 @@
 Summary:	API documentation generation tool for GTK+ and GNOME
 Name:		gtk-doc
 Version:	1.34.0
-Release: 	2
+Release: 	3
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
 Url: 		https://www.gtk.org/gtk-doc/
@@ -61,8 +61,7 @@ format. It is used for generating the documentation for GTK+, GLib and
 GNOME.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 # Move this doc file to avoid name collisions
 mv doc/README doc/README.docs
 
