@@ -5,7 +5,7 @@
 Summary:	API documentation generation tool for GTK+ and GNOME
 Name:		gtk-doc
 Version:	1.34.0
-Release: 	3
+Release: 	4
 License: 	GPLv2+ and GFDL
 Group: 		Development/GNOME and GTK+
 Url: 		https://www.gtk.org/gtk-doc/
@@ -34,7 +34,7 @@ Requires:	diffutils
 Requires:	docbook-utils
 Requires:	docbook-dtd412-xml
 Requires:	docbook-dtd43-xml
-Requires: 	docbook-style-xsl
+Requires: docbook-style-xsl
 Requires:	source-highlight
 Requires:	xsltproc
 %define __noautoreq 'perl\\(gtkdoc-common.pl\\)'
