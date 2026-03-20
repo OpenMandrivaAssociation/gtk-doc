@@ -82,7 +82,7 @@ install -d -m755 %{buildroot}%{_datadir}/gtk-doc/html
 #PERL5LIB=$(pwd) PATH=$PATH:$(pwd) make check
 
 %files -f %{name}-manual.lang
-%doc AUTHORS README doc/* examples
+%doc doc/* examples
 %{_bindir}/gtkdoc-check
 %{_bindir}/gtkdoc-depscan
 %{_bindir}/gtkdoc-fixxref
