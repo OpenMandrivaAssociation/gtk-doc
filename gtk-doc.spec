@@ -28,7 +28,8 @@ BuildRequires:	itstool
 BuildRequires:	xsltproc
 #gw for building the checks
 BuildRequires:  pkgconfig(glib-2.0)
-BuildRequires:  python3dist(pygments)
+BuildRequires:  python%{pyver}dist(parameterized)
+BuildRequires:  python%{pyver}dist(pygments)
 
 Requires:	diffutils
 Requires:	docbook-utils
